@@ -1,6 +1,5 @@
 package com.kryptovos;
 
-import com.kryptovos.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanScopeDemoApp {
@@ -12,10 +11,12 @@ public class BeanScopeDemoApp {
         // Retrieve bean from the spring container
 
         Coach theCoach = context.getBean("myCoach", Coach.class);
-        System.out.println(theCoach.getDailyWorkout());
 
         Coach alphaCoach = context.getBean("myCoach", Coach.class);
-        System.out.println(theCoach.getDailyWorkout());
+
+        //Check if theCoach is the same instance as alphaCoach
+        boolean result = theCoach == alphaCoach;
+        System.out.println(result);
 
     }
 }
